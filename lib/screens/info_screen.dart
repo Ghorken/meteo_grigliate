@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:markdown_widget/widget/markdown.dart';
 import 'package:meteo_grigliate/lang/strings.dart';
+import 'package:meteo_grigliate/themes/themes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InfoScreen extends StatefulWidget {
@@ -25,11 +26,11 @@ class _InfoScreenState extends State<InfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue[100],
+      backgroundColor: Themes.backgroundColor,
       appBar: AppBar(
         title: Text(strings.info),
         leading: IconButton(icon: const Icon(Icons.arrow_back), onPressed: () => Navigator.pop(context)),
-        backgroundColor: const Color.fromARGB(255, 156, 224, 255),
+        backgroundColor: Themes.appBarColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

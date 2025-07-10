@@ -5,6 +5,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:meteo_grigliate/lang/strings.dart';
 import 'package:meteo_grigliate/screens/meteo_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:meteo_grigliate/themes/themes.dart';
 import 'package:rive_splash_screen/rive_splash_screen.dart';
 
 void main() async {
@@ -38,11 +39,11 @@ class _MainAppState extends State<MainApp> {
         next: (context) => MeteoScreen(),
         until: () => Future.delayed(const Duration(milliseconds: 1000)),
         startAnimation: 'Martellata',
-        backgroundColor: Colors.lightBlue[100],
+        backgroundColor: Themes.backgroundColor,
         fit: BoxFit.contain,
       ),
       debugShowCheckedModeBanner: false,
-      color: Colors.lightBlue[100],
+      color: Themes.backgroundColor,
     );
   }
 }

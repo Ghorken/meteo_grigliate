@@ -6,6 +6,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:intl/intl.dart';
 import 'package:meteo_grigliate/screens/info_screen.dart';
 import 'package:meteo_grigliate/lang/strings.dart';
+import 'package:meteo_grigliate/themes/themes.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
@@ -70,11 +71,11 @@ class _MeteoScreenState extends State<MeteoScreen> {
     String capitalizedMonthYear = "${monthYear[0].toUpperCase()}${monthYear.substring(1)}";
 
     return Scaffold(
-      backgroundColor: Colors.lightBlue[100],
+      backgroundColor: Themes.backgroundColor,
       appBar: AppBar(
         title: Text(strings.title),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 156, 224, 255),
+        backgroundColor: Themes.appBarColor,
         actions: [
           IconButton(
             icon: const Icon(Icons.info_outline),
@@ -96,7 +97,7 @@ class _MeteoScreenState extends State<MeteoScreen> {
                     Screenshot(
                       controller: _screenshotController,
                       child: Container(
-                        color: Colors.lightBlue[100],
+                        color: Themes.backgroundColor,
                         child: Column(
                           spacing: 20.0,
                           children: [
