@@ -67,6 +67,7 @@ class _MeteoScreenState extends State<MeteoScreen> {
   Widget build(BuildContext context) {
     List<DateTime> weekDays = getCurrentWeekDays(firstWeekDay);
     String monthYear = DateFormat.yMMMM(Platform.localeName).format(firstWeekDay);
+    String capitalizedMonthYear = "${monthYear[0].toUpperCase()}${monthYear.substring(1)}";
 
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
@@ -105,7 +106,7 @@ class _MeteoScreenState extends State<MeteoScreen> {
                               children: [
                                 IconButton(onPressed: () => changeYear(-1), icon: const Icon(Icons.fast_rewind)),
                                 IconButton(onPressed: () => changeMonth(-1), icon: const Icon(Icons.chevron_left)),
-                                Text(monthYear, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                                Text(capitalizedMonthYear, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                                 IconButton(onPressed: () => changeMonth(1), icon: const Icon(Icons.chevron_right)),
                                 IconButton(onPressed: () => changeYear(1), icon: const Icon(Icons.fast_forward)),
                               ],
@@ -248,8 +249,11 @@ class _MeteoScreenState extends State<MeteoScreen> {
 
     final DateTime selectedDay = firstWeekDay.add(Duration(days: selectedDayIndex));
 
-    SharePlus.instance.share(
-      ShareParams(files: [XFile(imagePath.path)], text: strings.shareText(selectedDay.day.toString(), selectedDay.month.toString(), selectedDay.year.toString())),
-    );
+    String day = selectedDay.day.toString();
+    String month = DateFormat.MMMM(Platform.localeName).format(selectedDay);
+    String capitalizedMonth = "${month[0].toUpperCase()}${month.substring(1)}";
+    String year = selectedDay.year.toString();
+
+    SharePlus.instance.share(ShareParams(files: [XFile(imagePath.path)], text: strings.shareText('$day $capitalizedMonth $year')));
   }
 }

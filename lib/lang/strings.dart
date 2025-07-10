@@ -10,12 +10,14 @@ abstract class Strings {
   String get today;
   String get barbecueTime;
   String get shareWithFriends;
-  String shareText(String day, String month, String year);
+  String shareText(String formattedDate);
   String get info;
   String get bugRequest;
   String get join;
-  String get urlError;
+  String get email;
   String get discord;
+  String get urlError;
+  String get sendEmail;
 }
 
 Strings get strings {

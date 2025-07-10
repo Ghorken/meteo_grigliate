@@ -24,8 +24,6 @@ class _InfoScreenState extends State<InfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final Uri url = Uri.parse('https://discord.gg/D9GNQQFYMG');
-
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
@@ -41,12 +39,22 @@ class _InfoScreenState extends State<InfoScreen> {
             Text(strings.join, style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
             GestureDetector(
               onTap: () async {
+                final Uri url = Uri.parse(strings.discord);
                 if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
                   throw '${strings.urlError} $url';
                 }
               },
               child: Image.asset('assets/icons/discord.png', height: 150),
-              // Text(strings.discord, style: TextStyle(fontSize: 25.0, color: Colors.blue, decoration: TextDecoration.underline)),
+            ),
+            Text(strings.sendEmail, style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+            GestureDetector(
+              onTap: () async {
+                final Uri emailUri = Uri(scheme: 'mailto', path: strings.email, queryParameters: {'subject': 'Support request'});
+                if (!await launchUrl(emailUri)) {
+                  throw '${strings.urlError} ${strings.email}';
+                }
+              },
+              child: Text(strings.email, style: TextStyle(fontSize: 25.0, color: Colors.blue, decoration: TextDecoration.underline)),
             ),
             const SizedBox(height: 50),
             Expanded(child: MarkdownWidget(data: _markdownContent)),

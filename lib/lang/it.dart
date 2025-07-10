@@ -20,8 +20,8 @@ class It implements Strings {
   String get shareWithFriends => 'Fallo sapere anche agli amici';
 
   @override
-  String shareText(String day, String month, String year) {
-    return 'Questo è il meteo per il $day $month $year';
+  String shareText(String formattedDate) {
+    return 'Questo è il meteo per il $formattedDate';
   }
 
   @override
@@ -34,8 +34,14 @@ class It implements Strings {
   String get join => 'Vieni a trovarci su';
 
   @override
+  String get discord => 'https://discord.gg/D9GNQQFYMG';
+
+  @override
+  String get email => 'smithingthings@gmail.com';
+
+  @override
   String get urlError => 'Impossibile aprire';
 
   @override
-  String get discord => 'Discord';
+  String get sendEmail => 'O inviaci una mail a';
 }
