@@ -99,7 +99,7 @@ flutter:
   # see https://flutter.dev/to/font-from-package
   generate: true
   assets:
-    - assets/grigliata/
+    - assets/grigliate/
     - assets/privacy/
     - assets/icons/
     - assets/animations/

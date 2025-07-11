@@ -26,7 +26,14 @@ class _MeteoScreenState extends State<MeteoScreen> {
   late BannerAd _bannerAd;
 
   // Lista immagini asset
-  final List<String> grigliataImages = ['assets/grigliata/grigliata1.jpg', 'assets/grigliata/grigliata2.jpg', 'assets/grigliata/grigliata3.jpg', 'assets/grigliata/grigliata4.jpg'];
+  final List<String> grigliataImages = [
+    'assets/grigliate/bistecca.jpg',
+    'assets/grigliate/cipolle.jpg',
+    'assets/grigliate/pannocchie.jpg',
+    'assets/grigliate/pesce.jpg',
+    'assets/grigliate/salsicce.jpg',
+    'assets/grigliate/spiedini.jpg',
+  ];
   final CarouselSliderController _carouselSliderController = CarouselSliderController();
 
   @override
