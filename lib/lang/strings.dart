@@ -15,6 +15,7 @@ abstract class Strings {
   String get bugRequest;
   String get join;
   String get email;
+  String get support;
   String get discord;
   String get urlError;
   String get sendEmail;

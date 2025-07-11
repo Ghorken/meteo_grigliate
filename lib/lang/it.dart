@@ -40,6 +40,9 @@ class It implements Strings {
   String get email => 'smithingthings@gmail.com';
 
   @override
+  String get support => 'Richiesta supporto';
+
+  @override
   String get urlError => 'Impossibile aprire';
 
   @override

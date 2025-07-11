@@ -2,7 +2,7 @@ import 'package:meteo_grigliate/lang/strings.dart';
 
 class En implements Strings {
   @override
-  String get title => 'Barbecue meteo';
+  String get title => 'Barbecue weather';
 
   @override
   String get previousWeek => 'Previous week';
@@ -38,6 +38,9 @@ class En implements Strings {
 
   @override
   String get email => 'smithingthings@gmail.com';
+
+  @override
+  String get support => 'Support request';
 
   @override
   String get urlError => 'Error on opening';

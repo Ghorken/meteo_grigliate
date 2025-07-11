@@ -50,7 +50,7 @@ class _InfoScreenState extends State<InfoScreen> {
             Text(strings.sendEmail, style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
             GestureDetector(
               onTap: () async {
-                final Uri emailUri = Uri(scheme: 'mailto', path: strings.email, queryParameters: {'subject': 'Support request'});
+                final Uri emailUri = Uri(scheme: 'mailto', path: strings.email, queryParameters: {'subject': strings.support});
                 if (!await launchUrl(emailUri)) {
                   throw '${strings.urlError} ${strings.email}';
                 }

@@ -24,7 +24,6 @@ class _MeteoScreenState extends State<MeteoScreen> {
   late int selectedDayIndex;
   final ScreenshotController _screenshotController = ScreenshotController();
   late BannerAd _bannerAd;
-  bool _isBannerReady = false;
 
   // Lista immagini asset
   final List<String> grigliataImages = ['assets/grigliata/grigliata1.jpg', 'assets/grigliata/grigliata2.jpg', 'assets/grigliata/grigliata3.jpg', 'assets/grigliata/grigliata4.jpg'];
@@ -42,11 +41,6 @@ class _MeteoScreenState extends State<MeteoScreen> {
       request: const AdRequest(),
       size: AdSize.fullBanner,
       listener: BannerAdListener(
-        onAdLoaded: (_) {
-          setState(() {
-            _isBannerReady = true;
-          });
-        },
         onAdFailedToLoad: (ad, error) {
           debugPrint('Banner fallito: $error');
           ad.dispose();
@@ -198,9 +192,9 @@ class _MeteoScreenState extends State<MeteoScreen> {
               ),
             ),
           ),
-          if (_isBannerReady) SizedBox(height: _bannerAd.size.height.toDouble(), width: _bannerAd.size.width.toDouble(), child: AdWidget(ad: _bannerAd)),
         ],
       ),
+      bottomNavigationBar: SizedBox(height: _bannerAd.size.height.toDouble(), width: _bannerAd.size.width.toDouble(), child: AdWidget(ad: _bannerAd)),
     );
   }
 
