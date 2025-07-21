@@ -14,7 +14,13 @@ class It implements Strings {
   String get today => 'Oggi';
 
   @override
-  String get barbecueTime => 'È sempre tempo per una grigliata, perché il sole è dentro di te!';
+  String get barbecueTime1 => 'È sempre tempo per una grigliata, perché il sole è dentro di te!';
+
+  @override
+  String get barbecueTime2 => 'La grigliata è un\'arte, e il sole è il nostro maestro!';
+
+  @override
+  String get barbecueTime3 => 'L’aria oggi è composta per il 22% di ossigeno e per il 78% di profumo di grigliata!';
 
   @override
   String get shareWithFriends => 'Fallo sapere anche agli amici';

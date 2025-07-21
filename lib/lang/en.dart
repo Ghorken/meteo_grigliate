@@ -14,7 +14,13 @@ class En implements Strings {
   String get today => 'Today';
 
   @override
-  String get barbecueTime => 'It\'s always barbecue time, the sun hides in you!';
+  String get barbecueTime1 => 'It\'s always barbecue time, the sun hides in you!';
+
+  @override
+  String get barbecueTime2 => 'Barbecue is an art, and the sun is our master!';
+
+  @override
+  String get barbecueTime3 => 'The air today is made of 22% oxygen and 78% barbecue smell!';
 
   @override
   String get shareWithFriends => 'Tell it to all your friends';

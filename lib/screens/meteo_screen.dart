@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,8 @@ class _MeteoScreenState extends State<MeteoScreen> {
     'assets/grigliate/spiedini.jpg',
   ];
   final CarouselSliderController _carouselSliderController = CarouselSliderController();
+
+  final List<String> grigliataTexts = [strings.barbecueTime1, strings.barbecueTime2, strings.barbecueTime3];
 
   @override
   void initState() {
@@ -169,7 +172,13 @@ class _MeteoScreenState extends State<MeteoScreen> {
                             isLoading ? const CircularProgressIndicator() : Icon(Icons.wb_sunny, size: 150, color: Colors.orange),
 
                             // Scritta personalizzata
-                            Center(child: Text(strings.barbecueTime, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500), textAlign: TextAlign.center)),
+                            Center(
+                              child: Text(
+                                grigliataTexts[Random().nextInt(grigliataTexts.length)],
+                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
                           ],
                         ),
                       ),

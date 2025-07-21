@@ -8,7 +8,9 @@ abstract class Strings {
   String get previousWeek;
   String get nextWeek;
   String get today;
-  String get barbecueTime;
+  String get barbecueTime1;
+  String get barbecueTime2;
+  String get barbecueTime3;
   String get shareWithFriends;
   String shareText(String formattedDate);
   String get info;
