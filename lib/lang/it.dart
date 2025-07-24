@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:meteo_grigliate/lang/strings.dart';
 
 class It implements Strings {
@@ -14,13 +16,18 @@ class It implements Strings {
   String get today => 'Oggi';
 
   @override
-  String get barbecueTime1 => 'È sempre tempo per una grigliata, perché il sole è dentro di te!';
+  String get easterMonday => 'Ieri c\'era il sole, domani ci sarà il sole, ma oggi è Pasquetta';
 
   @override
-  String get barbecueTime2 => 'La grigliata è un\'arte, e il sole è il nostro maestro!';
+  String barbecueTime() {
+    final List<String> grigliataTexts = [
+      'È sempre tempo per una grigliata, perché il sole è dentro di te!',
+      'La grigliata è un\'arte, e il sole è il nostro maestro!',
+      'L’aria oggi è composta per il 22% di ossigeno e per il 78% di profumo di grigliata!',
+    ];
 
-  @override
-  String get barbecueTime3 => 'L’aria oggi è composta per il 22% di ossigeno e per il 78% di profumo di grigliata!';
+    return grigliataTexts[Random().nextInt(grigliataTexts.length)];
+  }
 
   @override
   String get shareWithFriends => 'Fallo sapere anche agli amici';

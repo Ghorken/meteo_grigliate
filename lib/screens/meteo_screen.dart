@@ -37,8 +37,6 @@ class _MeteoScreenState extends State<MeteoScreen> {
   ];
   final CarouselSliderController _carouselSliderController = CarouselSliderController();
 
-  final List<String> grigliataTexts = [strings.barbecueTime1, strings.barbecueTime2, strings.barbecueTime3];
-
   @override
   void initState() {
     setState(() {
@@ -168,17 +166,21 @@ class _MeteoScreenState extends State<MeteoScreen> {
                             // Imposta ad oggi
                             ElevatedButton(onPressed: resetToToday, child: Text(strings.today)),
 
-                            // Immagine del sole
-                            isLoading ? const CircularProgressIndicator() : Icon(Icons.wb_sunny, size: 150, color: Colors.orange),
-
-                            // Scritta personalizzata
-                            Center(
-                              child: Text(
-                                grigliataTexts[Random().nextInt(grigliataTexts.length)],
-                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                            // Immagine del sole e scritta personalizzata
+                            isLoading
+                                ? const CircularProgressIndicator()
+                                : Column(
+                                  children: [
+                                    isPasquetta() ? Icon(Icons.thunderstorm, size: 150, color: Colors.grey) : Icon(Icons.wb_sunny, size: 150, color: Colors.orange),
+                                    Center(
+                                      child: Text(
+                                        isPasquetta() ? strings.easterMonday : strings.barbecueTime(),
+                                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                           ],
                         ),
                       ),
@@ -266,5 +268,32 @@ class _MeteoScreenState extends State<MeteoScreen> {
     String year = selectedDay.year.toString();
 
     SharePlus.instance.share(ShareParams(files: [XFile(imagePath.path)], text: strings.shareText('$day $capitalizedMonth $year')));
+  }
+
+  bool isPasquetta() {
+    final DateTime selectedDay = firstWeekDay.add(Duration(days: selectedDayIndex));
+    final pasqua = easterDate(selectedDay.year);
+    final pasquetta = pasqua.add(Duration(days: 1));
+    return selectedDay.year == pasquetta.year && selectedDay.month == pasquetta.month && selectedDay.day == pasquetta.day;
+  }
+
+  // Calcolo della data di Pasqua secondo l'algoritmo di Meeus
+  DateTime easterDate(int year) {
+    final a = year % 19;
+    final b = year ~/ 100;
+    final c = year % 100;
+    final d = b ~/ 4;
+    final e = b % 4;
+    final f = (b + 8) ~/ 25;
+    final g = (b - f + 1) ~/ 3;
+    final h = (19 * a + b - d - g + 15) % 30;
+    final i = c ~/ 4;
+    final k = c % 4;
+    final l = (32 + 2 * e + 2 * i - h - k) % 7;
+    final m = (a + 11 * h + 22 * l) ~/ 451;
+    final month = (h + l - 7 * m + 114) ~/ 31;
+    final day = ((h + l - 7 * m + 114) % 31) + 1;
+
+    return DateTime(year, month, day);
   }
 }
