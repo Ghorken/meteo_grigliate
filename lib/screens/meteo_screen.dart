@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +44,7 @@ class _MeteoScreenState extends State<MeteoScreen> {
     });
 
     _bannerAd = BannerAd(
-      adUnitId: 'ca-app-pub-3940256099942544/9214589741',
+      adUnitId: 'ca-app-pub-8318465197221595/8305322196',
       request: const AdRequest(),
       size: AdSize.fullBanner,
       listener: BannerAdListener(
