@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:intl/intl.dart';
 import 'package:meteo_grigliate/screens/info_screen.dart';
 import 'package:meteo_grigliate/lang/strings.dart';
@@ -23,7 +22,6 @@ class _MeteoScreenState extends State<MeteoScreen> {
   bool isLoading = false;
   late int selectedDayIndex;
   final ScreenshotController _screenshotController = ScreenshotController();
-  late BannerAd _bannerAd;
 
   // Lista immagini asset
   final List<String> grigliataImages = [
@@ -43,25 +41,11 @@ class _MeteoScreenState extends State<MeteoScreen> {
       selectedDayIndex = DateTime.now().weekday - 1;
     });
 
-    _bannerAd = BannerAd(
-      adUnitId: 'ca-app-pub-8318465197221595/8305322196',
-      request: const AdRequest(),
-      size: AdSize.fullBanner,
-      listener: BannerAdListener(
-        onAdFailedToLoad: (ad, error) {
-          debugPrint('Banner fallito: $error');
-          ad.dispose();
-        },
-      ),
-    );
-
-    _bannerAd.load();
     super.initState();
   }
 
   @override
   void dispose() {
-    _bannerAd.dispose();
     super.dispose();
   }
 
@@ -211,7 +195,6 @@ class _MeteoScreenState extends State<MeteoScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: SizedBox(height: _bannerAd.size.height.toDouble(), width: _bannerAd.size.width.toDouble(), child: AdWidget(ad: _bannerAd)),
     );
   }
 
