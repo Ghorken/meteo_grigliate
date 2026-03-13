@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+10
+version: 1.0.1+11
 
 environment:
   sdk: ^3.7.2
@@ -38,11 +38,9 @@ dependencies:
   intl: ^0.20.2
   url_launcher: ^6.3.1
   screenshot: ^3.0.0
-  share_plus: ^11.0.0
+  share_plus: ^12.0.1
   path_provider: ^2.1.5
   markdown_widget: ^2.3.2+8
-  rive_splash_screen: ^0.1.1
-  rive: ^0.13.20
 
 dev_dependencies:
   flutter_test:
@@ -54,7 +52,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
